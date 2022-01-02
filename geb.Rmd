@@ -1,0 +1,21 @@
+---
+title: "GEB"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+$\neg\forall c:\exists b:(SS0 \cdot b)=c$
+
+$\forall c: \neg\exists b:(SS0\cdot b)=c$
+
+$\forall c:\exists b:\neg(SS0\cdot b)=c$
+
+$\neg\exists b:\forall c:(SS0\cdot b)=c$
+
+$\exists b:\neg\forall c:(SS0\cdot b)=c$
+
+$\exists b:\forall c:\neg(SS0\cdot b)=c$
+
