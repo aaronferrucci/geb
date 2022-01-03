@@ -168,13 +168,34 @@ pre code {
 </div>
 
 
-<p><span class="math inline">\(\forall:\exists:\)</span></p>
-<p><span class="math inline">\(\neg\forall c:\exists b:(SS0 \cdot b)=c\)</span></p>
-<p><span class="math inline">\(\forall c: \neg\exists b:(SS0\cdot b)=c\)</span></p>
-<p><span class="math inline">\(\forall c:\exists b:\neg(SS0\cdot b)=c\)</span></p>
-<p><span class="math inline">\(\neg\exists b:\forall c:(SS0\cdot b)=c\)</span></p>
-<p><span class="math inline">\(\exists b:\neg\forall c:(SS0\cdot b)=c\)</span></p>
-<p><span class="math inline">\(\exists b:\forall c:\neg(SS0\cdot b)=c\)</span></p>
+<div id="translation-puzzles" class="section level3">
+<h3>Translation Puzzles</h3>
+<p>Exercises from GEB, Chap. 8, p. 212. For practice, a set of 6 formulas. Which are true, which are false (under interpretation, of course)?</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\neg\forall c:\exists b:(SS0 \cdot b)=c\)</span></li>
+<li><span class="math inline">\(\forall c: \neg\exists b:(SS0\cdot b)=c\)</span></li>
+<li><span class="math inline">\(\forall c:\exists b:\neg(SS0\cdot b)=c\)</span></li>
+<li><span class="math inline">\(\neg\exists b:\forall c:(SS0\cdot b)=c\)</span></li>
+<li><span class="math inline">\(\exists b:\neg\forall c:(SS0\cdot b)=c\)</span></li>
+<li><span class="math inline">\(\exists b:\forall c:\neg(SS0\cdot b)=c\)</span></li>
+</ol>
+<p>First thing, they all end with the same term, <span class="math inline">\((SS0\cdot b)=c\)</span>. This means “two times b equals c” Easy! Both are free variables, and this term is an assertion about a relationship between them, which may be true or false.</p>
+<p>Next, add a single quantifier to the left of 1 and 2. “There is a b such that two times b equals c”. Try the same for 4 and 5, “for all values of c, two times b = c”. 2 differs from 1, and 5 differs from 4 by a negation. Adding that negation to 2 and 5, we get 2: “there is no value of b such that two times b equals c”, and 5: “it’s not true that for all values of c, two times b equals c”.</p>
+<p>3 and 6 have the same final term, including negation, which says “it’s not true that two times b equals c”. Adding a quantifier gives 3: “there’s a b such that it’s not true that two times b equals c”, and 6: “for all values of c, it’s not true that two times b equals c”.</p>
+<p>Up to here, we still have one free variable in every formula, and one quantifier to add.</p>
+<div id="adding-the-final-quanitifier-and-negation-if-present" class="section level4">
+<h4>Adding the final quanitifier, and negation if present:</h4>
+<ol style="list-style-type: decimal">
+<li>“It’s not true that for all c, there is a b such that two times b equals c”. True! Proof, by contradiction. Assume that the opposite is true: that for all c, there is a b such that two times b equals c. Since this is a statement about all values of c, a single counterexample shows that it’s false. <span class="math inline">\(c = 3\)</span> will do: there’s no b (in the natural numbers) which satisfies <span class="math inline">\(2 \cdot b = 3\)</span>. This shows that the opposite formula is false, thus formula 1 is true.</li>
+<li>“For all c, there is no value b such that two times b equals c”. False! When there’s a universal quantifier, I’m allowed to drop it and substitute a specific value (“specification”). If 2 is true (“is a theorem”), then so is <span class="math inline">\(\neg\exists b:(SS0\cdot b)=SS0\)</span>, “there is no b such that two times b equals two”. Well what about <span class="math inline">\(b=1\)</span>?</li>
+<li>“For all c, there is a b such that it is not true that two times b = c”. True! By specification, I can write <span class="math inline">\(\exists b: \neg(SS0\cdot b)=1\)</span>. There does exist a b (many b’s): 0. This one collapsed down to a simple, clearly true statement: <span class="math inline">\(\neg(2 \cdot 0) = 1\)</span>.</li>
+<li>“It’s not the case that there is a b such that for all values of c, two times b = c”. True, it is not the case! If c is an odd number, no b will satisfy. I <em>think</em> I can use specification here, to get <span class="math inline">\(\neg \exists b:(SS0\cdot b)=S0\)</span>, “it’s not the case that there exists a b such that two times b equals 1”.</li>
+<li>“There is a b such that it’s not the case that for all values of c, two times b equals c”. True! To prove an existential quantifier, I think I can just produce that value, how about <span class="math inline">\(b = 0\)</span>? It certainly isn’t true that, “for all values of c, two times 0 equals c”.</li>
+<li>“There is a b such that for all values of c, it’s not the case that two times b equals c”. False! No matter what b value we choose, we can then consider <span class="math inline">\(c = 2\cdot b\)</span> as a counterexample, which contradicts “it’s not the case that two times b equals c”.</li>
+</ol>
+<p>Summing up: 1: T, 2: F, 3: T, 4: T, 5: T, 6: F, so 4 are true, 2 are false, which at least matches the second hint on p. 213.</p>
+</div>
+</div>
 
 
 
